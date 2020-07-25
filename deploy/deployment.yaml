@@ -2,21 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    # app: reverse-proxy
-#   name: reverse-proxy
+    service: reverseproxy
+  name: reverseproxy
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-    #   app: reverse-proxy
   template:
     metadata:
       labels:
-        # app: reverse-proxy
+        service: reverseproxy
     spec:
       containers:
-        - image: damisparks/reverse-proxy
-          # name: reverse-proxy
+        - image: damisparks/reverseproxy
+          name: reverseproxy
           imagePullPolicy: Always
           resources:
             requests:
